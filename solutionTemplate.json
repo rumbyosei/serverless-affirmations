@@ -1,0 +1,57 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "IaC solution in order to deploy serverless affirmations ",
+  "Parameters" : {
+    "PhoneNumber" : {
+      "Type" : "String",
+      "Description" : "Phone Number to send messages too",
+      }
+    }
+  "Resources" : {
+    "NotificationTopic": {
+      "Type" : "AWS::SNS::Topic",
+      "Properties" : {
+        "DisplayName" : "Serverless Affirmations",
+        "Subscription" : [
+          {
+            "Endpoint" : "sms",
+            "Protocol" : { "Ref" : "PhoneNumber" }
+          }
+        ],
+        "TopicName" : "serverlessAffirmations"
+      },
+    },
+
+    "notifiationLambda" : {
+      "Type" : "AWS::Lambda::Function",
+      "Properties" : {
+          "Code" : Code,
+          "Description" : String,
+          "Environment" : {
+            "Variables" : {"topicARN" : { "Ref" : "NotificationTopic" } }
+          },
+          "FunctionName" : "serverlessAffirmations",
+          "Handler" : "lambda_function.sendAffirmations",
+          "MemorySize" : 128,
+          "PackageType" : "zip",
+          "Role" : String,
+          "Runtime" : "python3.8",
+          "Timeout" : 30
+        }
+    },
+    "lambdaRole": {
+      "Type" : "AWS::IAM::Role",
+      "Properties" : {
+          "AssumeRolePolicyDocument" : Json,
+          "ManagedPolicyArns" : [
+            "arn:aws:iam::aws:policy/AmazonSNSFullAccess",
+          ],
+          "Path" : String,
+          "PermissionsBoundary" : String,
+          "Policies" : [ Policy, ... ],
+          "RoleName" : "serverlessAffirmationsRole"
+        }
+    }
+
+  }
+}
