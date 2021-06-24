@@ -32,7 +32,7 @@
             "Variables" : {"topicARN" : { "Ref" : "NotificationTopic" } }
           },
           "FunctionName" : "serverlessAffirmations",
-          "Handler" : "lambda_function.sendAffirmations",
+          "Handler" : "index.sendAffirmations",
           "MemorySize" : 128,
           "Role" : {"Fn::GetAtt" : ["lambdaRole", "Arn"] },
           "Runtime" : "python3.8",
