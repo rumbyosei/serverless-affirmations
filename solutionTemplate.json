@@ -2,9 +2,9 @@
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description" : "IaC solution in order to deploy serverless affirmations ",
   "Parameters" : {
-    "PhoneNumber" : {
+    "Email" : {
       "Type" : "String",
-      "Description" : "Phone Number to send messages too",
+      "Description" : "Email to send messages too",
       }
     },
   "Resources" : {
@@ -14,8 +14,8 @@
         "DisplayName" : "Serverless Affirmations",
         "Subscription" : [
           {
-            "Endpoint" : { "Ref": "PhoneNumber"},
-            "Protocol" : "sms"
+            "Endpoint" : { "Ref": "Email"},
+            "Protocol" : "email"
           }
         ],
         "TopicName" : "serverlessAffirmations"
