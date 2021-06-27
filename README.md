@@ -5,7 +5,8 @@ A daily affirmation sender that is created with a serverless architecture. The 3
 - Simple Notification Service (SNS): Fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.
 
 ##Solution Diagram
-![alt text]./architecture.png)
+
+![alt text](./architecture.png)
 1. A time based rule is set on Cloudwatch Events to trigger a Lambda Function every day
 2. A lambda function runs that will select an affirmation from a JSON file and invoke SNS to send the message
 3. Once a SNS Topic gets the message to publish it will send the affirmation out to any users subscribed to the topic
@@ -15,4 +16,4 @@ To deploy the solution, navigate to  CloudFormation and create a stack. Upload a
 
 Once stack has finished creating, you can navigate to resources to view all resources created.
 
-Navigate to the lambda function console to upload the additional code. 'lambda_function.py' file from this repo can be uploaded to the. Create a new file in
+Navigate to the lambda function console to upload the additional code. 'lambda_function.py' file from this repo can be uploaded and create a new file called 'affirmations.json' to store the affirmations. Feel free to modify that fie with your own favorite
