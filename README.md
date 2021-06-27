@@ -4,7 +4,7 @@ A daily affirmation sender that is created with a serverless architecture. The 3
 - Cloudwatch-Event: Delivers a near real-time stream of system events that describe changes in your environment. Can be used to trigger  resources based on events or time based rules
 - Simple Notification Service (SNS): Fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.
 
-##Solution Diagram
+## Solution Diagram
 
 ![alt text](./architecture.png)
 1. A time based rule is set on Cloudwatch Events to trigger a Lambda Function every day
