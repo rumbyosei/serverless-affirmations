@@ -18,4 +18,4 @@ To deploy the solution, navigate to  CloudFormation and create a stack. Upload a
 
 Once stack has finished creating, you can navigate to resources to view all resources created.
 
-Navigate to the lambda function console to upload the additional code. 'lambda_function.py' file from this repo can be uploaded and create a new file called 'affirmations.json' to store the affirmations. Feel free to modify that fie with your own favorite
+Navigate to the lambda function console to upload the additional code: 'lambda_function.py' from this repo can be uploaded and add the 'affirmations.json' to store the affirmations. Feel free to modify that file with your own favorite affirmations!
